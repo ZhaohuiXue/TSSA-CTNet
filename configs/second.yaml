@@ -1,0 +1,31 @@
+# arguments for dataset
+dataset: second
+nclass: 4
+crop_size: 256
+data_root: "D:/GBA/npy/datapre" #"/hy-tmp/sample/data" 
+train_sample_number: 0.6
+val_sample_number: 0.2
+patch_size: 5
+temporal: ['0001L7', '1819L8']
+
+
+# arguments for training
+epochs: 30
+batch_size: 64 # per GPU x 1 GPU
+lr: 0.001
+lr_multi: 1.0
+conf_thresh: 0.95
+weight_band: 0.00001
+weight_loss: [1, 1, 1, 0.1]
+
+# arguments for model
+model: TDsemi2UKsim #TDsemi2 #pspnet #TDConv # #TFBS #deeplabv3plus
+backbone: resnet50
+replace_stride_with_dilation: [False, False, True]
+dilations: [6, 12, 18]
+extra_band: 4
+
+# <==== use PSPNet ====>
+# model: pspnet
+# backbone: resnet50
+# replace_stride_with_dilation: [False, True, True]
